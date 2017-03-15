@@ -14,6 +14,7 @@ Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAn
 # rRP ( rRecordPlayer ) / rSRP ( rStopRecordPlayer )
 This is a function in the anticheat, which makes it possible to record every frame of a player.
 This will output each frame in the format of, in a file in directory logs with filename of player.log:
+
 ( L DD/MM/YYYY - HH:mm:SS: sdmv(Sidemove): ###		fwmv(Forwardmove): ###		WASD	DUCK	JUMP	Height_from_ground.00	Velocity.00 )
 
 This can detect several things, like a bhop hack/macro, gstrafe hack/macro or an sgs hack/macro and etc.
