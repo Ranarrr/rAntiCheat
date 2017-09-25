@@ -12,6 +12,10 @@ Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAn
 - Detects simple strafe scripts
 .. Exclude steamids
 
+**NB!!**
+This uses a ban plugin, so to make this work on your server, you need this plugin:
+[mdb Ban System](http://www.ehrs.info/mdbbans/mdb_ban_system.amxx)
+
 # rRP ( rRecordPlayer ) / rSRP ( rStopRecordPlayer )
 This is a function in the anticheat, which makes it possible to record every frame of a player.
 This will output each frame in the format of, in a file in directory logs with filename of player.log:
