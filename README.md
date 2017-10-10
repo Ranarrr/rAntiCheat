@@ -23,7 +23,3 @@ This will output each frame in the format of, in a file in directory logs with f
 ( L DD/MM/YYYY - HH:mm:SS: sdmv(Sidemove): ### \t fwmv(Forwardmove): ### \t WASD \t DUCK \t JUMP \t Height_from_ground.00 \t Velocity.00 )
 
 This can detect several things, like a bhop hack/macro, gstrafe hack/macro or an sgs hack/macro and etc.
-
-# Amxx files
-- [Normal rAntiCheat](http://rgho.st/download/private/6JrTDNTwR/5a9d74825a1798ec69014aa4523a731f/34be6968bed7c049554fd3b18262572fe9de5f22/rAntiCheat.rar)
-- [rAntiCheat that excludes steamids](http://rgho.st/download/private/6Hvqn8c6Y/534cc9b089ed1557e827e81deb50f442/0ce97d09a4fd09c995b17dc91a97186885591941/rAnticheat-exclude-steamid.rar)
