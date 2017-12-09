@@ -51,7 +51,7 @@ b = beta
 */
 
 #define PLUGIN 	"rAntiCheat"
-#define VERSION "1.5"
+#define VERSION "1.6"
 #define AUTHOR 	"Ranarrr"
 
 #define magicmovevar 0.704		// 0.707106812
@@ -1461,7 +1461,7 @@ public player_spawn( id ) {
 
 public check_cvars() {
     static players[32], num, id;
-    get_players( players, num, "h" );
+    get_players( players, num, "ch" );
     for( new i = 0; i < num; i++ ) {
         id = players[i];
         for( new j = 0; j < sizeof( g_CheckCvar ); j++ )
