@@ -1,4 +1,4 @@
-# rAntiCheat v1.6
+# rAntiCheat v1.7
 
 Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAntiCheat
 
