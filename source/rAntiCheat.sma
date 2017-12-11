@@ -51,7 +51,7 @@ b = beta
 */
 
 #define PLUGIN 	"rAntiCheat"
-#define VERSION "1.6"
+#define VERSION "1.7"
 #define AUTHOR 	"Ranarrr"
 
 #define magicmovevar 0.704		// 0.707106812
@@ -639,8 +639,10 @@ public Player_PostThink( id ) {
 		- This checks limits. You can never have > maxspeed.
 		////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		*/
+		static Float:flMaxSpeed;
+		pev(id, pev_maxspeed, flMaxSpeed);
 		if( vector_length( fSpeed ) > 264.0 ) {
-			if( MovementSqroot > ( pev( id, pev_maxspeed ) ) || ( MovementSqroot < ( pev( id, pev_maxspeed ) * 0.51 && MovementSqroot != 0.0 ) ) || flForwardMove[id] > ( pev( id, pev_maxspeed ) )
+			if( MovementSqroot > flMaxSpeed || ( MovementSqroot < ( flMaxSpeed * 0.51 ) && MovementSqroot != 0.0 ) || flForwardMove[id] > ( pev( id, pev_maxspeed ) )
 			|| flSideMove[id] > ( pev( id, pev_maxspeed ) ) || flForwardMove[id] < -( pev( id, pev_maxspeed ) )	|| flSideMove[id] < -( pev( id, pev_maxspeed ) ) ) {
 				if( ++helperdet[id] >= value3 ) {
 					new name[32], SteamID[32], IPaddr[32];
