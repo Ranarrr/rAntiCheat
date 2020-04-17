@@ -12,6 +12,11 @@ Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAn
 - Detects simple strafe scripts
 .. Exclude steamids
 
+# How to exclude SteamIDs
+Use rAntiCheat-exclude-steamid.
+Create a file named "ex-SteamID.ini" in configs directory. Add 1 SteamID per line, will not work if you add multiple per line.
+The SteamIDs added will be excluded from all detections.
+
 **NB!!**
 This uses a ban plugin, so to make this work on your server, you need this plugin:
 [mdb Ban System](http://www.ehrs.info/mdbbans/mdb_ban_system.amxx)
