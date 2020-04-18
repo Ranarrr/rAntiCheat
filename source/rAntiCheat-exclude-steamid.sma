@@ -49,9 +49,9 @@ rc = Release Candidate ( meaning possible release version )
 a = alpha
 b = beta
 */
-
+// -e means excluding steamids..
 #define PLUGIN 	"rAntiCheat"
-#define VERSION "1.7"
+#define VERSION "1.7-e"
 #define AUTHOR 	"Ranarrr"
 
 #define magicmovevar 0.704		// 0.707106812
@@ -117,15 +117,24 @@ public plugin_init() {
 	bShouldExclude = true;
 	
 	authIDs = ArrayCreate( 32, 1 );
-	//native read_file(const file[],line,text[],len,&txtlen);
-	if( file_exists( "ex-SteamID" ) ) {
-		new increment = 0;
+	
+	new szFilePath[64];
+    	get_configsdir(szFilePath, charsmax(szFilePath));
+	formatex(szFilePath, charsmax(szFilePath), "%s/ex-SteamID.ini", szFilePath);
+	new file = fopen( szFilePath, "r+" );
+	
+	if( file ) {
 		new stringtopush[32];
-		while( !read_file( "ex-SteamID", increment++, stringtopush, charsmax( stringtopush ), txtlen ) ) {
+		while( !feof( file ) ) {
+			fgets( file, stringtopush, charsmax(stringtopush));
 			ArrayPushString(authIDs, stringtopush);
+			console_print(0, "[rAnti-Cheat] Excluded SteamID: %s", stringtopush);
 		}
+		
+		console_print(0, "[rAnti-Cheat] Excluding SteamID has been set up.");
 	} else {
 		bShouldExclude = false;
+		console_print(0, "[rAnti-Cheat] Failed to find ex-SteamID in configs directory, or not set up.");
 	}
 	
 	register_clcmd( "rRP", "startrecord", ADMIN_BAN, "Record player movement (sidemove, forwardmove, keys, duck and jump)" );
