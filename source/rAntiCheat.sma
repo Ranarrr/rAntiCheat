@@ -51,7 +51,7 @@ b = beta
 */
 
 #define PLUGIN 	"rAntiCheat"
-#define VERSION "1.7"
+#define VERSION "1.8-rc"
 #define AUTHOR 	"Ranarrr"
 
 #define magicmovevar 0.704		// 0.707106812
@@ -107,6 +107,7 @@ public plugin_init() {
 	register_forward( FM_CmdStart, "Player_CmdStart" );
 	register_forward( FM_PlayerPreThink, "Player_PreThink" );
 	register_forward( FM_PlayerPostThink, "Player_PostThink" );
+	register_forward( FM_ChangeLevel, "changelevel" );
 	
 	bPluginPause = false;
 	
@@ -119,6 +120,11 @@ public plugin_init() {
 	set_task( 1.0, "check_cvars", 0, "", 0, "b" );
 	set_task( 10.0, "bugfix", 0, "", 0, "d" );
 return;
+}
+
+public changelevel(const map[]) {
+	bPluginPause = true;
+	return PLUGIN_HANDLED;
 }
 
 public Player_PreThink( id ) {

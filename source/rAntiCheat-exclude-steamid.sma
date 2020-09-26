@@ -18,25 +18,6 @@ IDEA CENTER:
 					 |- Look at how jwj works, even jumps or uneven jumps, or both, if both, you can't detect em, but they should be even.
 		|-	Gstrafe	 |
 					 |- Same here as the one above on Bhop. dwd scripts.
-
-stock LogPlayer(id, szFmt[], any: ...)
-{
-	new iFile;
-	if ((iFile = fopen(g_szLogFile, "a")))
-	{
-		new szTime[22], szName[MAX_NAME_LENGTH], szAuthID[32], szIP[32], szMessage[256];
-		
-		get_time("%m/%d/%Y - %H:%M:%S", szTime, charsmax(szTime));
-		get_user_name(id, szName, MAX_NAME_LENGTH - 1);
-		get_user_authid(id, szAuthID, charsmax(szAuthID));
-		get_user_ip(id, szIP, charsmax(szIP), 1);
-		
-		vformat(szMessage, charsmax(szMessage), szFmt, 3);
-		
-		fprintf(iFile, "L %s: %s<%s><%s> %s^n", szTime, szName, szAuthID, szIP, szMessage);
-		fclose(iFile);
-	}
-}
 */
 /*
 0 for alpha (status)
@@ -51,7 +32,7 @@ b = beta
 */
 // -e means excluding steamids..
 #define PLUGIN 	"rAntiCheat"
-#define VERSION "1.7-e"
+#define VERSION "1.8-e-rc"
 #define AUTHOR 	"Ranarrr"
 
 #define magicmovevar 0.704		// 0.707106812
@@ -99,7 +80,7 @@ new Float:flOldForwardmove[33], Float:flOldSideMove[33];
 
 // Exclude steamid
 new Array:authIDs;
-new txtlen, bShouldExclude;
+new bShouldExclude;
 // -------------------
 
 // FPS
@@ -112,6 +93,7 @@ public plugin_init() {
 	register_forward( FM_CmdStart, "Player_CmdStart" );
 	register_forward( FM_PlayerPreThink, "Player_PreThink" );
 	register_forward( FM_PlayerPostThink, "Player_PostThink" );
+	register_forward( FM_ChangeLevel, "changelevel" );
 	
 	bPluginPause = false;
 	bShouldExclude = true;
@@ -146,6 +128,11 @@ public plugin_init() {
 	set_task( 1.0, "check_cvars", 0, "", 0, "b" );
 	set_task( 10.0, "bugfix", 0, "", 0, "d" );
 return;
+}
+
+public changelevel(const map[]) {
+	bPluginPause = true;
+	return PLUGIN_HANDLED;
 }
 
 public Player_PreThink( id ) {
