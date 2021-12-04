@@ -1,8 +1,11 @@
 # rAntiCheat v1.7
 
-**This mod and it's code exists purely for inspiration now, should not be used in a server.**
+**This mod and it's code exists purely for inspiration now, the mod itself should not be used in a server.**
 
 Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAntiCheat
+
+**NB!!**
+This uses the mdb Ban System. You can change the way bans are handled, so instead of amx_mban you would use amx_ban, but you need to change the parameters for the command.
 
 # Includes:
 - Strafe helper detections ( 8 methods )
@@ -13,10 +16,6 @@ Advanced anticheat for Hide'n'Seek mod in CS 1.6. https://github.com/Ranarrr/rAn
 - JumpBug checking (slow + speedhack)
 - Detects simple strafe scripts
 .. Exclude steamids
-
-**NB!!**
-This uses a ban plugin, so to make this work on your server, you need this plugin:
-[mdb Ban System](http://www.ehrs.info/mdbbans/mdb_ban_system.amxx)
 
 # How to exclude SteamIDs
 Use rAntiCheat-exclude-steamid.
